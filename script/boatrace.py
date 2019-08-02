@@ -5,6 +5,8 @@ from selenium.webdriver.common.alert import Alert
 from rakuten_settings import *
 
 class Boatrace:
+
+    URL = "https://ib.mbrace.or.jp/"
     @classmethod
     def login(cls):
         pass
