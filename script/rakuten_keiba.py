@@ -13,6 +13,7 @@ class RakutenKeiba:
 
         # driver = webdriver.Chrome()
         driver = webdriver.Chrome(options=options)
+        driver.maximize_window()
 
         # Open Rakuten-keiba web page
         driver.get('https://keiba.rakuten.co.jp/')
