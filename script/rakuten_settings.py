@@ -19,6 +19,7 @@ ODDSPARK_PIN = os.environ.get("ODDSPARK_PIN")
 
 KEIRIN_ID = os.environ.get("KEIRIN_ID")
 KEIRIN_PW = os.environ.get("KEIRIN_PW")
+KEIRIN_PIN = os.environ.get("KEIRIN_PIN")
 
 CHARILOTO_ID = os.environ.get("CHARILOTO_ID")
 CHARILOTO_PW = os.environ.get("CHARILOTO_PW")
