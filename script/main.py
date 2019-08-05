@@ -5,6 +5,7 @@ from autorace import Autorace
 from oddspark import Oddspark
 from boatrace import Boatrace
 from spat4 import Spat4
+from e_shinbun_bet import EShinbunBet
 
 def depositting():
     RakutenKeiba.depositting()
@@ -13,6 +14,7 @@ def depositting():
     Oddspark.depositting()
     Boatrace.depositting()
     Spat4.depositting()
+    EShinbunBet.depositting()
 
 
 def withdrawal():
