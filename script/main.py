@@ -6,6 +6,7 @@ from oddspark import Oddspark
 from boatrace import Boatrace
 from spat4 import Spat4
 from e_shinbun_bet import EShinbunBet
+from keirin import Keirin
 
 def depositting():
     RakutenKeiba.depositting()
@@ -15,6 +16,7 @@ def depositting():
     Boatrace.depositting()
     Spat4.depositting()
     EShinbunBet.depositting()
+    Keirin.depositting()
 
 
 def withdrawal():
@@ -23,7 +25,8 @@ def withdrawal():
     Oddspark.withdrawal()
     Boatrace.withdrawal()
     Spat4.withdrawal()
-
+    EShinbunBet.withdrawal()
+    Keirin.withdrawal()
 
 
 print("start depositting")
