@@ -1,5 +1,6 @@
 import time
 import chromedriver_binary
+import re
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
 from rakuten_settings import *
