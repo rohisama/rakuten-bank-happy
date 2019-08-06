@@ -32,8 +32,8 @@ class Happy(metaclass = ABCMeta):
         options.add_argument("--no-sandbox")
         options.add_argument('--lang=ja')
 
-        #cls.driver = webdriver.Chrome(options=options)
-        cls.driver = webdriver.Chrome()
+        cls.driver = webdriver.Chrome(options=options)
+        #cls.driver = webdriver.Chrome()
         cls.driver.get(url)
         cls.driver.maximize_window()
         time.sleep(uniform(1, 10))
