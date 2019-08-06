@@ -25,10 +25,9 @@ class Keirin(Happy):
         try:
             cls.login()
             
-            # Sclool window to the element "depositting"
-            element = cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[1]/button')
-            cls.driver.execute_script("arguments[0].scrollIntoView();", element)
-            element.click()
+            # Sclool window
+            cls.driver.execute_script("window.scrollTo(0, 500);")
+            cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[1]/button').click()
             cls.sleep()
 
             # Input depositting price and click button
@@ -38,7 +37,7 @@ class Keirin(Happy):
 
             # Fill the PIN and click execute button            
             cls.driver.find_element_by_id('UNQ_pfInputText_14').send_keys(KEIRIN_PIN)
-            cls.driver.find_element_by_id('UNQ_orbutton_18').click()
+            #cls.driver.find_element_by_id('UNQ_orbutton_18').click()
             cls.sleep()
 
         except:
@@ -54,10 +53,9 @@ class Keirin(Happy):
         try:
             cls.login()
 
-            # Sclool window to the element "withdrawal"
-            element = cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[3]/button')
-            cls.driver.execute_script("arguments[0].scrollIntoView();", element)
-            element.click()
+            # Sclool window
+            cls.driver.execute_script("window.scrollTo(0, 500);")
+            cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[3]/button').click()
             cls.sleep()
 
             # Click button
