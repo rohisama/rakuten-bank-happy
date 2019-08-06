@@ -1,8 +1,13 @@
+import subprocess
+import sys
+import os
 from abc import *
 from selenium import webdriver
 import time
 from random import uniform
-
+import pyocr
+import pyocr.builders
+from PIL import Image
 
 class Happy(metaclass = ABCMeta):
     @classmethod
@@ -27,8 +32,8 @@ class Happy(metaclass = ABCMeta):
         options.add_argument("--no-sandbox")
         options.add_argument('--lang=ja')
 
-        cls.driver = webdriver.Chrome(options=options)
-        #cls.driver = webdriver.Chrome()
+        #cls.driver = webdriver.Chrome(options=options)
+        cls.driver = webdriver.Chrome()
         cls.driver.get(url)
         cls.driver.maximize_window()
         time.sleep(uniform(1, 10))
@@ -44,3 +49,20 @@ class Happy(metaclass = ABCMeta):
     @classmethod
     def sleep(cls):
         time.sleep(uniform(1, 10))
+
+    @classmethod
+    def image_to_text(cls, img_path):
+        command = ["tesseract", img_path, "tmp"]
+
+        subprocess.run(command)
+
+        with open("tmp.txt", mode="r") as f:
+            txt = f.readline()
+ 
+        os.remove(img_path)
+        os.remove("tmp.txt")
+        return txt
+
+if __name__ == "__main__":
+    img_path = "draw.jpg"
+    print(Happy.image_to_text(img_path))
