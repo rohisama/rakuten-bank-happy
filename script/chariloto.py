@@ -48,7 +48,8 @@ class Chariloto(Happy):
 
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/cariloto_depo_result.png')
         cls.driver.quit()
@@ -73,9 +74,9 @@ class Chariloto(Happy):
             # Clicke execute button
             cls.driver.find_element_by_xpath('//*[@id="new_mypage_bank_statement_withdrawal_form"]/div/input').click()
 
-            pass
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/cariloto_withdrawal_result.png')
         cls.driver.quit()

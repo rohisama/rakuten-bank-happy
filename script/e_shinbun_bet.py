@@ -52,7 +52,8 @@ class EShinbunBet(Happy):
             cls.driver.find_element_by_xpath('//*[@id="conf"]/p/a[1]').click()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/eshinbun_depo_result.png')
         cls.driver.quit()

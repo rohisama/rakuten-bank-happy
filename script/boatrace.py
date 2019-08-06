@@ -54,7 +54,8 @@ class Boatrace(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
         
         cls.save_screenshot('result/boatrace_depo_result.png')
         cls.driver.quit()
@@ -86,7 +87,8 @@ class Boatrace(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
         
         cls.save_screenshot('result/boatrace_withdrawal_result.png')
         cls.driver.quit()

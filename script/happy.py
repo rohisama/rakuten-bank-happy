@@ -40,11 +40,15 @@ class Happy(metaclass = ABCMeta):
 
     @classmethod
     def save_screenshot(cls, path):
-        page_width = cls.driver.execute_script('return document.body.scrollWidth')
-        page_height = cls.driver.execute_script('return document.body.scrollHeight')
-        cls.driver.set_window_size(page_width, page_height)
-        time.sleep(2)
-        cls.driver.save_screenshot(path)
+        try:
+            page_width = cls.driver.execute_script('return document.body.scrollWidth')
+            page_height = cls.driver.execute_script('return document.body.scrollHeight')
+            cls.driver.set_window_size(page_width, page_height)
+            time.sleep(2)
+            cls.driver.save_screenshot(path)
+        except:
+            import traceback
+            traceback.print_exc()
 
     @classmethod
     def sleep(cls):

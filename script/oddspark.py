@@ -71,7 +71,8 @@ class Oddspark(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/oddspark_depo_result.png')
         cls.driver.quit()
@@ -92,7 +93,8 @@ class Oddspark(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/oddspark_withdrawal_result.png')
         cls.driver.quit()

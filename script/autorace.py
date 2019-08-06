@@ -42,7 +42,8 @@ class Autorace(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/autorace_depo_result.png')
         cls.driver.quit()
@@ -70,7 +71,8 @@ class Autorace(Happy):
             Alert(cls.driver).accept()
             cls.sleep()
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/autorace_withdrawal_result.png')
         cls.driver.quit()

@@ -47,7 +47,8 @@ class Spat4(Happy):
             cls.driver.find_element_by_name('EXEC').click()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/spat4_depo_result.png')
         cls.driver.quit()
@@ -69,7 +70,8 @@ class Spat4(Happy):
             cls.driver.find_element_by_name('EXEC').click()
 
         except:
-            print("Error!!")
+            import traceback
+            traceback.print_exc()
 
         cls.save_screenshot('result/spat4_withdrawal_result.png')
         cls.driver.quit()
