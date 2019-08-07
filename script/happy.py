@@ -5,9 +5,6 @@ from abc import *
 from selenium import webdriver
 import time
 from random import uniform
-import pyocr
-import pyocr.builders
-from PIL import Image
 
 class Happy(metaclass = ABCMeta):
     @classmethod
@@ -32,8 +29,8 @@ class Happy(metaclass = ABCMeta):
         options.add_argument("--no-sandbox")
         options.add_argument('--lang=ja')
 
-        cls.driver = webdriver.Chrome(options=options)
-        #cls.driver = webdriver.Chrome()
+        #cls.driver = webdriver.Chrome(options=options)
+        cls.driver = webdriver.Chrome()
         cls.driver.get(url)
         cls.driver.maximize_window()
         time.sleep(uniform(1, 10))
