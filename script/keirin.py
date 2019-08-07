@@ -37,7 +37,7 @@ class Keirin(Happy):
 
             # Fill the PIN and click execute button            
             cls.driver.find_element_by_id('UNQ_pfInputText_14').send_keys(KEIRIN_PIN)
-            #cls.driver.find_element_by_id('UNQ_orbutton_18').click()
+            cls.driver.find_element_by_id('UNQ_orbutton_18').click()
             cls.sleep()
 
         except:
