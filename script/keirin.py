@@ -17,6 +17,7 @@ class Keirin(Happy):
         cls.driver.find_element_by_id('txtnetVotingPass').send_keys(KEIRIN_PW)
         
         # Click login button
+        cls.driver.execute_script("window.scrollTo(0, 300);")
         cls.driver.find_element_by_id('btnlogin').click()
         cls.sleep()
 
@@ -26,7 +27,7 @@ class Keirin(Happy):
             cls.login()
             
             # Sclool window
-            cls.driver.execute_script("window.scrollTo(0, 500);")
+            cls.driver.execute_script("window.scrollTo(100, 500);")
             cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[1]/button').click()
             cls.sleep()
 
@@ -54,7 +55,7 @@ class Keirin(Happy):
             cls.login()
 
             # Sclool window
-            cls.driver.execute_script("window.scrollTo(0, 500);")
+            cls.driver.execute_script("window.scrollTo(100, 500);")
             cls.driver.find_element_by_xpath('//*[@id="balance"]/table/tbody/tr/td[3]/button').click()
             cls.sleep()
 
