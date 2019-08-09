@@ -12,6 +12,9 @@ class Keirin(Happy):
     def login(cls):
         cls.open_page(PAGEURL)
 
+        # Change window size
+        cls.driver.set_window_size(1200, 1000)
+
         # Fill ID and Password
         cls.driver.find_element_by_id('txtnetVotingAutId').send_keys(KEIRIN_ID)
         cls.driver.find_element_by_id('txtnetVotingPass').send_keys(KEIRIN_PW)
