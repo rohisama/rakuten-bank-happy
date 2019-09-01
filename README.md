@@ -61,7 +61,7 @@ pipでもインストール可能な為、作者は以下コマンドからイ�
 
      ODDSPARK_ID="huga1234"
      ODDSPARK_PW="hogehoge"
-     ODDSPARK_PIN="1`234"
+     ODDSPARK_PIN="1234"
 
      KEIRIN_ID="hugahuga"
      KEIRIN_PW="hoghoge"
@@ -87,5 +87,5 @@ pipでもインストール可能な為、作者は以下コマンドからイ�
 ~~~
 python main.py
 ~~~
-エラーなく終了すれば入金/出金完了画面のスクリーンショットを 
+エラーなく終了すれば入金/出金完了画面のスクリーンショットをscript/resultフォルダに出力します  
 エラーが発生した場合も、エラー発生時の画面のスクリーンショットをscript/resultフォルダに出力します 
