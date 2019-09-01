@@ -46,6 +46,10 @@ pipでもインストール可能な為、作者は以下コマンドからイ�
   ~~~
   pip install python-dotenv
   ~~~
+- tesseract
+  - OCRソフト。e-SHINBUN BETのみ出金時に画像認証が必要だが、本ソフトで対応可能  
+  Windowsは[こちら](https://github.com/UB-Mannheim/tesseract/wiki)からインストーラをDLしてインストールする。パスも通しておくこと。  
+  Ubuntuは[公式手順](https://github.com/tesseract-ocr/tesseract/wiki#installation)に従ってインストール
 ## 準備
 - .envファイルの作成  
   - 上記公営競技の認証情報を記述したテキストファイル(`.env`というファイル名で保存する)  
