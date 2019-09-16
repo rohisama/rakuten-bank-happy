@@ -71,8 +71,9 @@ class Oddspark(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/oddspark_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/oddspark_depo_result.png')
         cls.driver.quit()
@@ -93,8 +94,9 @@ class Oddspark(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/oddspark_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/oddspark_withdrawal_result.png')
         cls.driver.quit()

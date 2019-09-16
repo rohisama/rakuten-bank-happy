@@ -52,8 +52,9 @@ class EShinbunBet(Happy):
             cls.driver.find_element_by_xpath('//*[@id="conf"]/p/a[1]').click()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/eshinbun_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/eshinbun_depo_result.png')
         cls.driver.quit()
@@ -70,8 +71,9 @@ class EShinbunBet(Happy):
             cls.image_auth()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/eshinbun_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/eshinbun_withdrawal_result.png')
         cls.driver.quit()

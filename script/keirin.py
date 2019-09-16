@@ -45,9 +45,9 @@ class Keirin(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
-            print("Error!!")
+            f_path = "result/keirin_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/keirin_depo_result.png')
         cls.driver.quit()
@@ -72,7 +72,9 @@ class Keirin(Happy):
             cls.sleep()
 
         except:
-            print("Error!!")
+            f_path = "result/keirin_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/keirin_withdrawal_result.png')
         cls.driver.quit()

@@ -54,8 +54,9 @@ class Boatrace(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/boatrace_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
         
         cls.save_screenshot('result/boatrace_depo_result.png')
         cls.driver.quit()
@@ -87,8 +88,9 @@ class Boatrace(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/boatrace_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
         
         cls.save_screenshot('result/boatrace_withdrawal_result.png')
         cls.driver.quit()

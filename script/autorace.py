@@ -42,8 +42,9 @@ class Autorace(Happy):
             cls.sleep()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/autorace_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/autorace_depo_result.png')
         cls.driver.quit()
@@ -71,8 +72,9 @@ class Autorace(Happy):
             Alert(cls.driver).accept()
             cls.sleep()
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/autorace_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/autorace_withdrawal_result.png')
         cls.driver.quit()

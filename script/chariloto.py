@@ -48,8 +48,9 @@ class Chariloto(Happy):
 
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/cariloto_depo_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/cariloto_depo_result.png')
         cls.driver.quit()
@@ -75,8 +76,9 @@ class Chariloto(Happy):
             cls.driver.find_element_by_xpath('//*[@id="new_mypage_bank_statement_withdrawal_form"]/div/input').click()
 
         except:
-            import traceback
-            traceback.print_exc()
+            f_path = "result/cariloto_withdrawal_error.png"
+            cls.save_screenshot(f_path)
+            cls.report_to_slack("error!", f_path)
 
         cls.save_screenshot('result/cariloto_withdrawal_result.png')
         cls.driver.quit()
