@@ -8,6 +8,8 @@ from boatrace import Boatrace
 from spat4 import Spat4
 from e_shinbun_bet import EShinbunBet
 from keirin import Keirin
+from slackbot.slackclient import SlackClient
+from slackbot_settings import *
 
 def depositting():
     RakutenKeiba.depositting()
@@ -31,14 +33,12 @@ def withdrawal():
 
 def report_to_slack():
     try:
-        from slackbot.slackclient import SlackClient
-        from slackbot_settings import *
         slack_client = SlackClient(API_TOKEN)
         flist = os.listdir("result")
         for file in flist:
             print(f"upload {file}")
             slack_client.upload_file(SLACK_CHANNEL, file, f"result/{file}", None)
-    except ImportError:
+    except:
         pass
 
 print("start depositting")

@@ -7,6 +7,8 @@ import time
 from random import uniform
 from slackbot.slackclient import SlackClient
 from slackbot_settings import *
+from slackbot.slackclient import SlackClient
+from slackbot_settings import *
 
 class Happy(metaclass = ABCMeta):
     @classmethod
@@ -69,13 +71,11 @@ class Happy(metaclass = ABCMeta):
     @classmethod
     def report_to_slack(cls, msg, file_path):
         try:
-            from slackbot.slackclient import SlackClient
-            from slackbot_settings import *
             slack_client = SlackClient(API_TOKEN)
             classname = cls.__class__.__name__
             slack_client.rtm_send_message(SLACK_CHANNEL, f"[{classname}] : {msg}")
             slack_client.upload_file(SLACK_CHANNEL, "image", file_path, None)
-        except ImportError:
+        except:
             pass
 
 if __name__ == "__main__":
