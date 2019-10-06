@@ -63,6 +63,7 @@ class Keirin(Happy):
             cls.sleep()
 
             # Click button
+            cls.driver.execute_script("window.scrollTo(100, 500);")
             cls.driver.find_element_by_id('UNQ_orbutton_36').click()
             cls.sleep()
 
