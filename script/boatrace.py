@@ -22,16 +22,23 @@ class Boatrace(Happy):
         cls.driver.find_element_by_id('loginButton').click()
         cls.sleep()
 
+        # Change window
+        handle_array = cls.driver.window_handles
+        cls.driver.switch_to.window(handle_array[1])
+
+        # When information pop-up is displayed, close it
+        if (len(cls.driver.find_elements(value='newsoverviewDisp')) != 0):
+            cls.driver.find_element_by_id('isAllread').click()
+            cls.driver.find_element_by_id('newsoverviewdispCloseButton').click()
+        else:
+            print("continue")
+            
 
 
     @classmethod
     def depositting(cls):
         try:
             cls.login()
-
-            # Change window
-            handle_array = cls.driver.window_handles
-            cls.driver.switch_to.window(handle_array[1])
 
             # Click depositting button
             cls.driver.find_element_by_id('gnavi01').click()
@@ -64,11 +71,7 @@ class Boatrace(Happy):
     @classmethod
     def withdrawal(cls):
         try:
-            cls.login()
-            
-            # Change window
-            handle_array = cls.driver.window_handles
-            cls.driver.switch_to.window(handle_array[1])
+            cls.login()    
 
             # Click withdrawal button
             cls.driver.find_element_by_id('gnavi01').click()
@@ -97,3 +100,5 @@ class Boatrace(Happy):
 
 if __name__ == "__main__":
     Boatrace.depositting()
+    time.sleep(300)
+    Boatrace.withdrawal()

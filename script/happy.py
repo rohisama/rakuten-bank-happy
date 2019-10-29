@@ -73,7 +73,7 @@ class Happy(metaclass = ABCMeta):
         try:
             slack_client = SlackClient(API_TOKEN)
             classname = cls.__class__.__name__
-            slack_client.rtm_send_message(SLACK_CHANNEL, f"[{classname}] : {msg}")
+            slack_client.send_message(SLACK_CHANNEL, f"[{classname}] : {msg}")
             slack_client.upload_file(SLACK_CHANNEL, "image", file_path, None)
         except:
             pass
