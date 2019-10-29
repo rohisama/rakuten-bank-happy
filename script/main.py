@@ -1,6 +1,5 @@
 import time
 import os
-from slackbot.slackclient import SlackClient
 from rakuten_keiba import RakutenKeiba
 from chariloto import Chariloto
 from autorace import Autorace
@@ -9,7 +8,10 @@ from boatrace import Boatrace
 from spat4 import Spat4
 from e_shinbun_bet import EShinbunBet
 from keirin import Keirin
+from slackbot.slackclient import SlackClient
 from slackbot_settings import *
+
+slack_client = None
 
 def depositting():
     RakutenKeiba.depositting()
@@ -31,16 +33,22 @@ def withdrawal():
     EShinbunBet.withdrawal()
     Keirin.withdrawal()
 
-def report_to_slack():
-    slack_client = SlackClient(API_TOKEN)
-    flist = os.listdir("result")
-    for file in flist:
-        print(f"upload {file}")
-        slack_client.upload_file(SLACK_CHANNEL, file, f"result/{file}", None)
+def send_message_to_slack(msg):
+    try:
+        slack_client = get_slack_client()
+        time.sleep(5)
+        slack_client.rtm_send_message(SLACK_CHANNEL, msg)
+    except:
+        print("error")
+        pass
+
+def get_slack_client():
+    return SlackClient(API_TOKEN) if slack_client is None else slack_client
 
 print("start depositting")
+send_message_to_slack("start rakuten-bank automation")
 depositting()
 time.sleep(600)
 print("start withdrawal")
 withdrawal()
-report_to_slack()
+send_message_to_slack("finish rakuten-bank automation")

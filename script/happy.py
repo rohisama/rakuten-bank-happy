@@ -5,6 +5,10 @@ from abc import *
 from selenium import webdriver
 import time
 from random import uniform
+from slackbot.slackclient import SlackClient
+from slackbot_settings import *
+from slackbot.slackclient import SlackClient
+from slackbot_settings import *
 
 class Happy(metaclass = ABCMeta):
     @classmethod
@@ -49,7 +53,7 @@ class Happy(metaclass = ABCMeta):
 
     @classmethod
     def sleep(cls):
-        time.sleep(uniform(1, 10))
+        time.sleep(uniform(5, 15))
 
     @classmethod
     def image_to_text(cls, img_path):
@@ -63,6 +67,16 @@ class Happy(metaclass = ABCMeta):
         os.remove(img_path)
         os.remove("tmp.txt")
         return txt
+
+    @classmethod
+    def report_to_slack(cls, msg, file_path):
+        try:
+            slack_client = SlackClient(API_TOKEN)
+            classname = cls.__class__.__name__
+            slack_client.send_message(SLACK_CHANNEL, f"[{classname}] : {msg}")
+            slack_client.upload_file(SLACK_CHANNEL, "image", file_path, None)
+        except:
+            pass
 
 if __name__ == "__main__":
     img_path = "draw.jpg"
