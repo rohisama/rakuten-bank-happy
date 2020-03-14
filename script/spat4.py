@@ -30,7 +30,7 @@ class Spat4(Happy):
             cls.login()
 
             # Click depositting button
-            cls.driver.find_element_by_xpath('/html/body/form/div/div[2]/div/ul/li[4]/input').click()
+            cls.driver.find_element_by_xpath('/html/body/form/div/div[3]/div/ul/li[4]/input').click()
             cls.sleep()
             
             # Change window
@@ -60,7 +60,7 @@ class Spat4(Happy):
             cls.login()
 
             # Click withdrawal button
-            cls.driver.find_element_by_xpath('/html/body/form/div/div[2]/div/ul/li[5]/input').click()
+            cls.driver.find_element_by_xpath('/html/body/form/div/div[3]/div/ul/li[5]/input').click()
             cls.sleep()
 
             cls.driver.find_element_by_xpath('//*[@id="seisanForm"]/div/input').click()
